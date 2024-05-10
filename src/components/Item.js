@@ -1,6 +1,7 @@
-const Item =()=>{
+const Item =(props)=>{ 
+    const {title,amount}=props
     return (
-        <li>ค่าเดินทาง <span>-200</span></li>
+        <li>{title}<span>{amount}</span></li>
     )
 }
 export default Item
