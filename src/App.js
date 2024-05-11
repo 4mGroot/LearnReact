@@ -25,7 +25,7 @@ function App() {
     })
     }
   return (  
-      <DataContext.Provider value={"kong"}>
+      <DataContext.Provider value={"Nontawat"}>
         <div className="container">
           <h1 style={design}>สวัสดีครับ</h1>
           <Title/>

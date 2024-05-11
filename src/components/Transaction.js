@@ -1,4 +1,4 @@
-import DataContext from "../data/DataContext"
+import DataContext from "../data/DataContext" //รูปเต็มในการใช้ useContext
 import Item from "./Item"
 import './Transaction.css'
 
@@ -31,5 +31,5 @@ const Transaction = (props)=>{
     </div>  
     )
 }
-//บรรทัดที่ 28 consumer เป็นการรัยข้อมูลมาจาก provider
+//บรรทัดที่ 28 consumer เป็นการรัยข้อมูลมาจาก provider **รูปเต็มในการใช้ useContext
 export default Transaction
