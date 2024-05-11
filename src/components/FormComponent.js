@@ -1,12 +1,13 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import './FormComponent.css'
 import { v4 as uuidv4 } from 'uuid'
 
 const FormComponent =(props)=>{
     const [title,setTitle] = useState('')
     const [amount,setAmount] = useState(0)
+    const [formValid,setFormValid] =useState(false)
 
-    function inputTitle(event) {
+    const inputTitle=(event)=> {
         setTitle(event.target.value) //จะเป็นการเก็บค่าที่ป้อนไปไว้ใน title บรรทัดที่ 4
     }
     const inputAmount =(event)=>{
@@ -23,6 +24,11 @@ const FormComponent =(props)=>{
         setTitle('')//เป็นการเคลียค่าใน hooks
         setAmount(0)
     }
+
+    useEffect(()=>{
+        const checkData = title.trim().length>0 && amount!=0 //ชื่อรายการต้องไม่เป็นค่าว่าง amount ต้องไม่เป็นเลข 0 จะทำ
+        setFormValid(checkData)
+    },[title,amount])//เช็คตรงamount title ว่ามีการเปลี่ยนแปลงมั้ยถ้ามีจะทำการเรียกใช้ useEffect
     return(
         <div>
         <form onSubmit={saveItem}>
@@ -35,10 +41,11 @@ const FormComponent =(props)=>{
                 <input type="text" placeholder="(+ รายรับ, - รายจ่าย)" onChange={inputAmount} value={amount}></input>
             </div>
             <div>
-                <button className="btn" type="submit">บันทึกข้อมูล</button>
+                <button className="btn" type="submit" disabled={!formValid}>บันทึกข้อมูล</button>
             </div>
         </form>
     </div>
     )
 }
+//ปุ่มจะกดได้ฏ้ต่อเมื่อ amount ไม่เท่ากับ 0
 export default FormComponent
