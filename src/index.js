@@ -1,15 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
+import { createRoot } from 'react-dom/client';
 // //การสร้าง Component
 // class HelloComponent extends React.Component{
 //   render(){
 //     return <h1>สวัสดีค้าบบบบบ</h1>
 //   }
 // }
-ReactDOM.render(<App/>,document.getElementById('root'));
+createRoot(document.getElementById('root')).render(<App />);
 // root.render(
 //   <React.StrictMode>
 //     <App />

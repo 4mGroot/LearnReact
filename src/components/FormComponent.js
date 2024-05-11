@@ -1,11 +1,14 @@
 import './FormComponent.css'
 const FormComponent =()=>{
+    const inputTitle =(evevt)=>{
+        console.log("Hello world")
+    }
     return(
         <div>
         <form>
             <div className="form-control">
                 <label>ชื่อรายการ</label>
-                <input type="text" placeholder="ระบุชื่อรายการของคุฌ"></input>
+                <input type="text" placeholder="ระบุชื่อรายการของคุฌ" onChange={inputTitle}></input>
             </div>
             <div className="form-control">
                 <label>จำนวนเงิน</label>
