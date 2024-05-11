@@ -32,7 +32,7 @@ const FormComponent =(props)=>{
             </div>
             <div className="form-control">
                 <label>จำนวนเงิน</label>
-                <input type="text" placeholder="ระบุจำนวนเงิน" onChange={inputAmount} value={amount}></input>
+                <input type="text" placeholder="(+ รายรับ, - รายจ่าย)" onChange={inputAmount} value={amount}></input>
             </div>
             <div>
                 <button className="btn" type="submit">บันทึกข้อมูล</button>

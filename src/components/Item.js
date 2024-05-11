@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
+import './Item.css'
 const Item =(props)=>{ 
     const {title,amount}=props
+    const status=amount<0 ? "expense":"income"//หลัง? คำสั่งเมื่อเป็นจริง หลัง:เมื่อเป็น เท็จ
+    const symbol=amount<0 ? "-":"+"
     return (
-        <li>{title}<span>{amount}</span></li>
+        <li className={status}>{title} <span>{symbol}{Math.abs(amount)}</span></li> //math.abs ทำให้ค่าลบเป็นค่าบวก
     )
 }
 Item.propTypes={
