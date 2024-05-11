@@ -2,6 +2,9 @@ import Transaction from "./components/Transaction";
 import './App.css'
 import FormComponent from "./components/FormComponent";
 import {useState} from 'react'
+import DataContext from "./data/DataContext";
+
+
 
 //jsx Style แบบ in line
 const Title =()=><h1 style={{color:"red",textAlign:"center"}}>โปรแกรมบัญชี</h1>
@@ -22,13 +25,15 @@ function App() {
     })
     }
   return (  
-    <div className="container">
-      <h1 style={design}>สวัสดีครับ</h1>
-      <Title/>
-      <FormComponent onAddItem={onAddNewItem}/>
-      <Transaction items={items}/>
-    </div>
+      <DataContext.Provider value={"kong"}>
+        <div className="container">
+          <h1 style={design}>สวัสดีครับ</h1>
+          <Title/>
+          <FormComponent onAddItem={onAddNewItem}/>
+          <Transaction items={items}/>
+        </div>
+      </DataContext.Provider>
   )
 }
-
+//provider มีหน้าที่ส่งข้อมูลไปให้ Consumer
 export default App;
