@@ -5,8 +5,8 @@ const ReportComponent=()=>{
     const {income,expense} = useContext(DataContext)// const {income,expense} สลาย array ที่ส่งมาจาก provider จาก app.js
     return (
         <div>
-            <p>รายรับ :{income}</p>
-            <p>รายจ่าย :{expense}</p>
+            <p>รายรับ : {income}</p>
+            <p>รายจ่าย : {expense}</p>
         </div>
     )
 }

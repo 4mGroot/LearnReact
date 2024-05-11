@@ -1,7 +1,7 @@
 import Transaction from "./components/Transaction";
 import './App.css'
 import FormComponent from "./components/FormComponent";
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import DataContext from "./data/DataContext";
 import ReportComponent from "./components/ReportComponent";
 
@@ -20,16 +20,25 @@ function App() {
     {id:3,title:"ค่าขนม",amount:800}
 ]
   const [items,setItems]= useState(initData)
+  const [reportIncome,setReportIncome]=useState(0)
+  const [reportExpense,setReportExpense]=useState(0)
   const onAddNewItem =(newItem)=>{//newItem คือข้อมูลที่ส่งมาจาก form
     setItems((prevItem)=>{
       return [newItem,...prevItem]//ให้ข้อมูลใหม่ที่ส่งเข้ามาอยู่ด้านหน้าข้อมูลเดิม
     })
     }
+    useEffect(()=>{
+      const amounts = items.map(items=>items.amount)
+      const income = amounts.filter(element=>element>0).reduce((total,element)=>total+element,0)
+      const expense = (amounts.filter(element=>element<0).reduce((total,element)=>total+element,0))*-1
+      setReportIncome(income)
+      setReportExpense(expense)
+    },[items,reportIncome,reportExpense])
   return (
       <DataContext.Provider value={
         {
-          income : 5000,
-          expense : -8000
+          income : reportIncome,
+          expense : reportExpense
         }
       }>
         <div className="container">
