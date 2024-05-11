@@ -3,6 +3,7 @@ import './App.css'
 import FormComponent from "./components/FormComponent";
 import {useState} from 'react'
 import DataContext from "./data/DataContext";
+import ReportComponent from "./components/ReportComponent";
 
 
 
@@ -24,11 +25,17 @@ function App() {
       return [newItem,...prevItem]//ให้ข้อมูลใหม่ที่ส่งเข้ามาอยู่ด้านหน้าข้อมูลเดิม
     })
     }
-  return (  
-      <DataContext.Provider value={"Nontawat"}>
+  return (
+      <DataContext.Provider value={
+        {
+          income : 5000,
+          expense : -8000
+        }
+      }>
         <div className="container">
           <h1 style={design}>สวัสดีครับ</h1>
           <Title/>
+          <ReportComponent/>
           <FormComponent onAddItem={onAddNewItem}/>
           <Transaction items={items}/>
         </div>

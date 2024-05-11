@@ -25,9 +25,9 @@ const Transaction = (props)=>{
                 return <Item {...element} key ={element.id}/>
             })}
             </ul>
-            <DataContext.Consumer>
+            {/* <DataContext.Consumer>
                 {value=><p>{value}</p>}
-            </DataContext.Consumer>
+            </DataContext.Consumer> */}
     </div>  
     )
 }
