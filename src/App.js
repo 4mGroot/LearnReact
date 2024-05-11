@@ -1,5 +1,6 @@
 import Transaction from "./components/Transaction";
 import './App.css'
+import FormComponent from "./components/FormComponent";
 //jsx Style แบบ in line
 const Title =()=><h1 style={{color:"red",textAlign:"center"}}>โปรแกรมบัญชี</h1>
 //หรือจะใช้แบบนี้ก็ได้ แบบ in line
@@ -10,6 +11,7 @@ function App() {
     <div className="container">
       <h1 style={design}>สวัสดีครับ</h1>
       <Title/>
+      <FormComponent/>
       <Transaction/>
     </div>
   )
