@@ -41,7 +41,7 @@ const FormComponent =(props)=>{
                 <input type="text" placeholder="(+ รายรับ, - รายจ่าย)" onChange={inputAmount} value={amount}></input>
             </div>
             <div>
-                <button className="btn" type="submit" disabled={!formValid}>บันทึกข้อมูล</button>
+                <button className="btn" type="submit" disabled={!formValid}>เพิ่มข้อมูล</button>
             </div>
         </form>
     </div>
